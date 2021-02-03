@@ -44,61 +44,55 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <TouchableOpacity style={styles.hambergerBtn}></TouchableOpacity>
         <View style={styles.header}>
-          <View style={styles.habitTitle}>
+          <View style={styles.greyTitle}>
             <TouchableOpacity >
-              <Text style={styles.habitText} >{this.state.habitTitle} |</Text>
+              <Text style={styles.greyText} >{this.state.habitTitle} |</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.doListTitle}>
+          <View style={styles.seletedTitle}>
             <TouchableOpacity>
-              <Text style={styles.doText}>Do-list</Text>
+              <Text style={styles.seletedText}>Do-list</Text>
             </TouchableOpacity>
           </View>
         </View>
         <View style={styles.date}>
           <View style={styles.dateLeft}>
             <TouchableOpacity >
-              <Image style={styles.today} source={require('./icon/today_btn.png')}/>
-              {/* <Text style={styles.todayText}>today </Text> */}
+              <Image style={styles.all} source={require('./icon/all_seleted.png')}/>
             </TouchableOpacity>
             <TouchableOpacity >
-              <Image style={styles.all} source={require('./icon/all_btn.png')}/>
+              <Image style={styles.do} source={require('./icon/do.png')}/>
+            </TouchableOpacity>
+            <TouchableOpacity >
+              <Image style={styles.done} source={require('./icon/done.png')}/>
             </TouchableOpacity>
           </View>
           <View style={styles.seletedDate}>
 
-              <Text style={styles.seletedDateText}>2021.03.10</Text>
+              <Text style={styles.seletedDateText}>Weekly</Text>
 
           </View>
         </View>
 
         <View style={styles.listView}>
         <ScrollView>
-          <View style={styles.item1}>
-            <Text style={styles.itemTitle} >기상 후 스 트레칭</Text>
-            <Text style={styles.itemPercent}>42%</Text>
+          <View style={styles.item}>
+            <Image style={styles.radioBtn} source={require('./icon/radio.png')} />
+            <Text style={styles.dolist}>다이어트 도시락 챙겨가기</Text>
           </View>
-          <View style={styles.item2}>
-            <Text style={styles.itemTitle} >기상 후 스 트레칭</Text>
-            <Text style={styles.itemPercent}>42%</Text>
+          <View style={styles.item}>
+            <Image style={styles.radioBtn} source={require('./icon/radio.png')} />
+            <Text style={styles.dolist}>다이어트 도시락 챙겨가기</Text>
           </View>
-          <View style={styles.item3}>
-            <Text style={styles.itemTitle} >기상 후 스 트레칭</Text>
-            <Text style={styles.itemPercent}>42%</Text>
+          <View style={styles.item}>
+            <Image style={styles.radioBtn} source={require('./icon/radio.png')} />
+            <Text style={styles.dolist}>다이어트 도시락 챙겨가기</Text>
           </View>
-          <View style={styles.item4}>
-            <Text style={styles.itemTitle} >기상 후 스 트레칭</Text>
-            <Text style={styles.itemPercent}>42%</Text>
+          <View style={styles.itemDone}>
+            <Image style={styles.radioBtn} source={require('./icon/radio_checked.png')} />
+            <Text style={styles.dolist}>서점들려서 자기계발서 사기</Text>
           </View>
-          <View style={styles.item1}>
-            <Text style={styles.itemTitle} >기상 후 스 트레칭</Text>
-            <Text style={styles.itemPercent}>42%</Text>
-          </View>
-          <View style={styles.item2}>
-            <Text style={styles.itemTitle} >기상 후 스 트레칭</Text>
-            <Text style={styles.itemPercent}>42%</Text>
-          </View>
-          
+            
         </ScrollView>
         <TouchableOpacity style={styles.floattingBtn}>
           <Image style={styles.addIcon} source={require('./icon/plus_btn.png')}/>
@@ -145,19 +139,19 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     flex:1,
   },
-  habitTitle: {
+  seletedTitle: {
     justifyContent:'center',
     padding: 10,
     //backgroundColor: Colors.white,
     
     
   },
-  habitText:{
+  seletedText:{
     color:'#333333',
     fontSize:24,
     fontFamily:'arial'
   },
-  doListTitle: {
+  greyTitle: {
     justifyContent:'center',
     padding:10,
     //fontSize: 50,
@@ -167,7 +161,12 @@ const styles = StyleSheet.create({
     //color:'pink'
    
   },
-  doText:{
+  radioBtn:{
+    width:20,
+    height:20,
+    marginRight:12
+  },
+  greyText:{
     color:'#b2b2b2',
     fontSize:24,
     fontFamily:'arial'
@@ -179,7 +178,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     height:16,
     padding:3,
-    flex:1,
+    flex:1.2,
     //flexDirection:'row',
     //backgroundColor:'pink',
     //width:'100%'
@@ -188,11 +187,7 @@ const styles = StyleSheet.create({
   dateLeft:{
     flexDirection: 'row',
   },
-  today:{
-   width:73,
-   height:29
-    
-  },
+
   todayText:{
     color:Colors.white,
     fontSize: 15,
@@ -201,9 +196,19 @@ const styles = StyleSheet.create({
   },
 
   all:{
-    marginLeft:8,
+    marginLeft:6,
     height:29,
     width:49
+  },
+  do:{
+    marginLeft:6,
+    height:29,
+    width:52
+  },
+  done:{
+    marginLeft:6,
+    height:29,
+    width:69
   },
   seletedDate:{
     justifyContent:'center',
@@ -220,27 +225,27 @@ const styles = StyleSheet.create({
     color: Colors.dark,
     flex: 8,
   },
-  item1:{
+  item:{
     width:'100%',
-    height:81,
+    height:58,
     borderRadius: 10,
     //backgroundColor:'#ff7170',
-    backgroundColor:'#95acbf',
+    backgroundColor:'#f5f5f5',
     //fontSize: 40,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     marginBottom:16,
     flexDirection:'row',
     alignItems:'center',
     padding: 20
   },
-  item2:{
+  itemDone:{
     width:'100%',
-    height:81,
+    height:58,
     borderRadius: 10,
     //backgroundColor:'#7bf2a4',
-    backgroundColor:'#bbcad9',
+    backgroundColor:'#cccccc',
     fontSize: 40,
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     marginBottom:16,
     flexDirection:'row',
     alignItems:'center',
@@ -277,9 +282,9 @@ const styles = StyleSheet.create({
     fontSize:18,
     color:'#333333'
   },
-  itemPercent:{
+  dolist:{
     fontFamily:'spoqa_han_sans',
-    fontSize:13,
+    fontSize:16,
     color:'#333333'
   }
 });
